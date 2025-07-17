@@ -37,7 +37,7 @@ env:
 
 jobs:
   check:
-    runs-on: ubuntu-latest
+    runs-on: blacksmith-4vcpu-ubuntu-2404
     outputs:
       MS_COMMIT: ${{ env.MS_COMMIT }}
       MS_TAG: ${{ env.MS_TAG }}
@@ -72,7 +72,7 @@ jobs:
   compile:
     needs:
       - check
-    runs-on: ubuntu-22.04
+    runs-on: blacksmith-4vcpu-ubuntu-2204
     env:
       MS_COMMIT: ${{ needs.check.outputs.MS_COMMIT }}
       MS_TAG: ${{ needs.check.outputs.MS_TAG }}
